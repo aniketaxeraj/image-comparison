@@ -7,6 +7,8 @@ import {
   RendererFactory2,
 } from '@angular/core';
 
+declare const window: any;
+
 @Component({
   selector: 'app-image-comparsion',
   standalone: true,
@@ -26,8 +28,13 @@ export class ImageComparsionComponent {
   }
 
   ngOnInit() {
-    this.loadScripts();
-    this.loadStylesheets();
+    if (
+      typeof window == 'object' &&
+      !window.customElements.get('img-comparison-slider')
+    ) {
+      this.loadScripts();
+      this.loadStylesheets();
+    }
   }
 
   private loadScripts() {
