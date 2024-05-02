@@ -1,0 +1,9 @@
+<div [style.width]="'50%'" [style.height]="'40%'">
+  <nz-carousel [nzEffect]="effect" [nzEnableSwipe]="true">
+    @for (index of array; track index) {
+    <div nz-carousel-content [ngStyle]="{ display: 'block' }">
+      <h3>{{ index }}</h3>
+    </div>
+    }
+  </nz-carousel>
+</div>
